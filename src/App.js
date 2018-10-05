@@ -13,7 +13,16 @@ class App extends Component {
       {id: 4, value: 0}
     ]
   }
-  
+
+  constructor(props){
+    super(props);
+    console.log('app constructor')
+  }
+
+  componentDidMount() {
+    //Ajax call
+  }
+
   handleIncrement = counter => {
     const counters =  [...this.state.counters];
     const index = counters.indexOf(counter)
