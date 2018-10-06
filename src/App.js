@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Counters from './components/counters';
 import NavBar from './components/navbar';
@@ -28,6 +27,14 @@ class App extends Component {
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value++;
+    console.log(this.state.counters[index]);
+    this.setState({ counters });
+  };
+  handleIDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
     console.log(this.state.counters[index]);
     this.setState({ counters });
   };
@@ -61,6 +68,7 @@ class App extends Component {
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleIDecrement}
             onDelete={this.handleDelete}
           />
         </main>
